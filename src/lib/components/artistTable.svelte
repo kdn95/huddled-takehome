@@ -1,12 +1,23 @@
 <script lang="ts">
-  let { artistVisits } = $props();
+  export let artistVisits: {
+    artist_id: number;
+    artist_name: string;
+    total_visit_duration: number;
+    unique_session_count: number;
+  }[];
 
-  function formatDuration(duration: number): string {
-    const minutes = Math.floor(duration / 60);
-    const seconds = duration % 60;
-
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  export function formatDuration(duration: number): string {
+    const hours = Math.floor(duration / 3600); // Convert seconds to hours
+    const minutes = Math.floor((duration % 3600) / 60); // Remaining minutes
+    const seconds = duration % 60; // Remaining seconds
+    
+    // Return the formatted duration with hours, minutes, and seconds
+    if (hours > 0) {
+    return `${hours} hr ${minutes < 10 ? '0' : ''}${minutes} min ${seconds < 10 ? '0' : ''}${seconds} sec`;
   }
+  
+  return `${minutes} min ${seconds < 10 ? '0' : ''}${seconds} sec`;
+}
 </script>
 
 <div class="overflow-x-auto">
@@ -16,9 +27,10 @@
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky top-0"
       >
         <tr>
-          <th scope="col" class="px-6 py-3">Artist Id</th>
-          <th scope="col" class="px-6 py-3">Artist Name</th>
-          <th scope="col" class="px-6 py-3">Total Time Spent (minutes)</th>
+          <th scope="col" class="px-6 py-4">Artist Id</th>
+          <th scope="col" class="px-6 py-4">Artist Name</th>
+          <th scope="col" class="px-6 py-4">Total Time Spent (minutes)</th>
+          <th scope="col" class="px-6 py-4">Total Unique Visitors</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +50,7 @@
               {formatDuration(total_visit_duration)}
             </td>
             <td class="px-6 py-4">
-              {formatDuration(unique_session_count)}
+              {unique_session_count}
             </td>
           </tr>
         {/each}

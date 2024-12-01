@@ -17,3 +17,10 @@ export const handle = async ({ event, resolve }) => {
   event.locals.db = db;
   return resolve(event);
 };
+
+try {
+  const result = db.prepare("SELECT 1").get();
+  console.log("Database test query result:", result);
+} catch (error) {
+  console.error("Error testing database query:", error);
+}

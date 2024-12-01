@@ -1,7 +1,7 @@
-import { Database, Statement } from "bun:sqlite"; // You can use this if you prefer Bun
+// import { Database, Statement } from "bun:sqlite"; // You can use this if you prefer Bun
 
-// import Database from "better-sqlite3";
-// import { Statement } from "better-sqlite3";
+import Database from "better-sqlite3";
+import { Statement } from "better-sqlite3";
 
 // -----------------------------------------------------------------------------
 // Database schema/Types
