@@ -1,0 +1,47 @@
+Task 3
+
+Implementation Plan
+
+Based on the given codebase (which I haven't even done and am wildly taking guesses of what could or could not be the actual data from this exam),
+I would add a small filter system or tracking system that is analyzing data to be collected of user interactions such as:
+- artist visits from a user
+- how long they are there on the artist's page
+- the behaviour of users and their actions (likes, repeat of songs/playlists/albums, do they share and etc.)
+- the type of artists they listen to and the genres involved
+
+And then through data analysis and some machine learning or AI models, ideally build a system that provides recommendations to users:
+- artists similar to the ones they currently listen to most
+- layer below, artists within same genre/style of music, sounds in particular, instruments used often in songs
+- provide playlists of said artists/genres made by other users
+
+Part of this we could find data of other users with similar data (i.e. another user that also likes similar style of music).
+Recommend different artists from second user to first user to see if they also like those artists if they have similar interests in music.
+
+from the first user's interaction to the new content, we see if they like/dislike the recommendations and based on the data, we get the model to learn and predict
+better outcomes/recommendations for a more personalized system for each user.
+
+Some challenges to think about:
+
+privacy policy: they may lose trust in how we use their data and we think about the ethics.
+resolution plan: provide transparency of what data is used for providing them this recommendation system and give option to turn-off feature
+
+Diversity: user groups may just have similar tastes in music but in different styles too
+resolution plan: try and throw some curve-ball recommendations
+
+New user: new users have no history of music styles
+resolution plan: create a small system that exposes them to popular artists through a short quiz/game to quickly understand what they may like
+
+Evaluation Plan
+
+1. Analyze quantitive data and collect all the numbers via KPI, click-rate, engagement time (how long they spend on certain areas i.e. same artists/genre or are they
+exploring new music), interactions (how often they share, are they creating a playlist for themselves with similar music or just what they like?)
+
+2. Maintain data collection and analysis
+- keep training our machine learning models/algorithms with more data
+
+3. Check in with users with feedback
+- request feedback or do those surveys
+- like/dislike buttons in recommendation system
+
+4. Do some testing for different approaches
+  - A/B testing and see if feedback is as consistent with their interactions on artist's page
